@@ -2,9 +2,7 @@
 title: "Calvary Bible Church of Westminster, MD"
 # Give a brief description of the church
 description: > # this means to ignore newlines until "baseurl:"
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus blanditiis odio corrupti, 
-    illum architecto consequuntur, quaerat unde repudiandae qui temporibus! Fuga maxime molestiae hic impedit 
-    sit sint perferendis rerum unde.
+    It does make a difference what you believe. We'd love to have you visit this Sunday.
 # Leave this alone
 baseurl: "" # the subpath of your site, e.g. /blog
 # Change this to the domain when you are finished and ready to publish.
