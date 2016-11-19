@@ -221,7 +221,7 @@ var updated = false;
         maxRecords: 100,
       //sort
         filterByFormula: "AND(published, Future)",
-        sort: [{field: "DateTime", direction: "desc"}],
+        sort: [{field: "DateTime", direction: "asc"}],
       //Formula to how to get data
       // help https://support.airtable.com/hc/en-us/articles/203255215-Formula-Field-Reference
 
@@ -763,23 +763,22 @@ leadership('Leadership').select({
   console.log('leadership worked');
 });
 
-// Missionaries data 
 
-var config = loadConfig().airtable;
-var jsonfile = require('jsonfile');
-var filemissionaries = '_data/missionaries.json';
-var missionaries = new Airtable({ apiKey: config.apikey }).base(config.missionaries);
-var missionariesJson = [];
-var missionariesJsonTest = [];
+// lessons data 
 
-missionaries('Missionaries').select({
+var filelessons = '_data/lessons.json';
+var lessons = new Airtable({ apiKey: config.apikey }).base(config.lessons);
+var lessonsJson = [];
+var lessonsJsonTest = [];
+
+lessons('lessons').select({
     maxRecords: 100,
     view: "Main View"
   
 }).eachPage(function page(records, fetchNextPage) {
 
     records.forEach(function(record) {
-      missionariesJson.push(record._rawJson.fields);
+      lessonsJson.push(record._rawJson.fields);
       
     });
     fetchNextPage();
@@ -788,8 +787,8 @@ missionaries('Missionaries').select({
     if (error) {
         console.log(error);
     }
-  jsonfile.writeFile(filemissionaries, missionariesJson, function (err) {
+  jsonfile.writeFile(filelessons, lessonsJson, function (err) {
     console.error(err)
   });
-  console.log('missionaries worked');
+  console.log('lessons worked');
 });
